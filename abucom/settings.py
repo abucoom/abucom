@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cyvz&k-smodk!%8t@u2^p@4ym!h0d&d20pdabrw28gq+smc%c4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["10.10.10.10", "abucom", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'abucom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
