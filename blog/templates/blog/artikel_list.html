@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block contents %}
+    {% for artikel in object_list %}
+        <h3>{{ artikel.judul|capfirst }}</h3>
+        <!-- <small>
+            <i>
+                {{ artikel.kategori.nama }},
+                {{ artikel.penulis.nama }},
+                {{ artikel.slug }},
+                {{ artikel.updated|date }}
+            </i>
+        </small> -->
+        <p>
+            {{ artikel.isi|truncatewords:14 }}
+            <small>
+                <i>
+                    <a href="">Selengkapnya</a>
+                </i>
+            </small>
+        </p>
+    {% endfor %}
+{% endblock %}
