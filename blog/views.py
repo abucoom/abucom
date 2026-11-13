@@ -1,6 +1,12 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
 from .models import Artikel
+
+class ArtikelCreateView(CreateView):
+    model  = Artikel
+    fields = ("judul", "isi", "kategori", "penulis", "publish",)
+    success_url = reverse_lazy("blog:index")
 
 class ArtikelDetailView(DetailView):
     model = Artikel
