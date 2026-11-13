@@ -1,9 +1,15 @@
 from django.urls import reverse_lazy
 from django.views.generic import (
-    TemplateView, ListView, DetailView, CreateView, UpdateView
+    TemplateView, ListView, DetailView, CreateView, UpdateView,
+    DeleteView,
 )
 
 from .models import Artikel
+
+class ArtikelDeleteView(DeleteView):
+    model = Artikel
+    success_url = reverse_lazy("blog:artikel")
+    extra_context = {"page_title": "hapus artikel"}
 
 class ArtikelUpdateView(UpdateView):
     model  = Artikel

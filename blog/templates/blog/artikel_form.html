@@ -5,5 +5,14 @@
         {% csrf_token %}
         <table>{{ form.as_table }}</table>
         <button type="submit">Simpan</button>
+        {% if page_title == "update artikel" %}
+            <a href="{% url 'blog:detail' object.pk %}">
+                <input type="button" value="BATAL">
+            </a>
+        {% else %}
+            <a href="{% url 'blog:artikel' %}">
+                <input type="button" value="BATAL">
+            </a>
+        {% endif %}
     </form>
 {% endblock %}

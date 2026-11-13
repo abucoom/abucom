@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block contents %}
+    <h3>Yakin hapus artikel berikut : </h3>
+    <b>{{ object }}</b>
+
+    <br><br><br>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="YA">
+        <a href="{% url 'blog:detail' object.pk %}">
+            <input type="button" value="BATAL">
+        </a>
+    </form>
+{% endblock %}
