@@ -1,12 +1,21 @@
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import (
+    TemplateView, ListView, DetailView, CreateView, UpdateView
+)
 
 from .models import Artikel
+
+class ArtikelUpdateView(UpdateView):
+    model  = Artikel
+    fields = ("judul", "isi", "kategori", "penulis", "publish",)
+    success_url = reverse_lazy("blog:artikel")
+    extra_context = {"page_title": "update artikel"}
 
 class ArtikelCreateView(CreateView):
     model  = Artikel
     fields = ("judul", "isi", "kategori", "penulis", "publish",)
-    success_url = reverse_lazy("blog:index")
+    success_url = reverse_lazy("blog:artikel")
+    extra_context = {"page_title": "create artikel"}
 
 class ArtikelDetailView(DetailView):
     model = Artikel
