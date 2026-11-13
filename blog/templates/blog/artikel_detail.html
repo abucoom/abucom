@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contents %}
+    <h2>{{ object.judul|capfirst }}</h2>
+    <small>
+        <i>
+            {{ object.updated|date }},
+            {{ object.kategori.nama }},
+            {{ object.penulis.nama }},
+            {{ object.views }} view
+        </i>
+    </small>
+    <p>{{ object.isi|linebreaks }}</p>
+{% endblock %}
