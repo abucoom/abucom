@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contents %}
+    {% for artikel in object_list %}
+        <h3>{{ artikel.judul|capfirst }}</h3>
+        <p>
+            {{ artikel.isi|truncatewords:14 }}
+            <small>
+                <i>
+                    <a href="{% url 'blog:detail' artikel.pk %}">Selengkapnya</a>
+                </i>
+            </small>
+        </p>
+    {% endfor %}
+    <a href="{% url 'blog:create' %}">
+        <input type="button" value="BUAT ARTIKEL">
+    </a>
+{% endblock %}
